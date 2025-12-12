@@ -1,0 +1,45 @@
+# C compiled files
+*.o
+*.out
+src/c_engine/log_parser
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Data files (optional - uncomment if you don't want to commit data)
+# data/parsed_logs/*.json
+# data/datasets/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Config with secrets
+config/*_secret.json
+config/siem_config.json
+
+# Temporary files
+/tmp/
+*.tmp
+
+# Analysis results
+data/analysis/*.json
