@@ -1,0 +1,35 @@
+{
+  "base_model": "llama-2-7b",
+  "lora_config": {
+    "r": 8,
+    "lora_alpha": 16,
+    "target_modules": [
+      "q_proj",
+      "v_proj",
+      "k_proj",
+      "o_proj"
+    ],
+    "lora_dropout": 0.05,
+    "bias": "none",
+    "task_type": "CAUSAL_LM"
+  },
+  "training_args": {
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0002,
+    "fp16": true,
+    "logging_steps": 10,
+    "save_steps": 100,
+    "eval_steps": 100,
+    "warmup_steps": 100,
+    "max_grad_norm": 0.3,
+    "weight_decay": 0.001,
+    "optim": "paged_adamw_32bit"
+  },
+  "dataset_config": {
+    "max_seq_length": 2048,
+    "dataset_text_field": "text",
+    "split": "train"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "created_at": "2025-12-12T12:37:30.255858",
+  "total_examples": 12,
+  "train_examples": 10,
+  "test_examples": 2,
+  "formats": [
+    "alpaca",
+    "chatml",
+    "openai"
+  ],
+  "files": {
+    "alpaca": [
+      "alpaca_train.json",
+      "alpaca_test.json"
+    ],
+    "chatml": [
+      "chatml_train.json",
+      "chatml_test.json"
+    ],
+    "openai": [
+      "openai_train.jsonl",
+      "openai_test.jsonl"
+    ],
+    "config": [
+      "lora_config.json"
+    ]
+  }
+}

